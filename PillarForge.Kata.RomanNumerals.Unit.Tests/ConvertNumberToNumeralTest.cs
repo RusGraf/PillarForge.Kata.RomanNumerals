@@ -99,5 +99,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumberToNumeral(4);
             Assert.AreEqual("IV", actual);
         }
+
+        [TestMethod]
+        public void GivenNumberNine_WhenConvertNumberToNumeral_ThenReturnNumeralIX()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(9);
+            Assert.AreEqual("IX", actual);
+        }
     }
 }
