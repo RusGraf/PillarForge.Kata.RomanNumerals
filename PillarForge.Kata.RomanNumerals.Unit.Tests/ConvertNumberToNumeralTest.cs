@@ -115,5 +115,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumberToNumeral(300);
             Assert.AreEqual("CCC", actual);
         }
+
+        [TestMethod]
+        public void GivenNumberThreeThousand_WhenConvertNumberToNumeral_ThenReturnNumeralMMM()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(3000);
+            Assert.AreEqual("MMM", actual);
+        }
     }
 }

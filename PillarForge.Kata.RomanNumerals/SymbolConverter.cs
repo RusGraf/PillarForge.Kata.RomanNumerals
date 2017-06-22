@@ -8,9 +8,7 @@ namespace PillarForge.Kata.RomanNumerals
         {
             switch (number)
             {
-                case 1000: return "M";
                 case 500: return "D";
-                case 100: return "C";
                 case 50: return "L";
                 case 9: return "IX";
                 case 5: return "V";
@@ -19,9 +17,10 @@ namespace PillarForge.Kata.RomanNumerals
             }
 
             var numeralToNumberMapping = new Dictionary<int, string> {
-                { 100,"C"},
+                { 1000, "M" },
+                { 100, "C" },
                 { 10, "X" },
-                { 1, "I"}
+                { 1, "I" }
             };
             var result = "";
             foreach (var mapping in numeralToNumberMapping)
