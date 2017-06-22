@@ -1,4 +1,6 @@
-﻿namespace PillarForge.Kata.RomanNumerals
+﻿using System.Collections.Generic;
+
+namespace PillarForge.Kata.RomanNumerals
 {
     public class SymbolConverter
     {
@@ -15,18 +17,22 @@
                 case 4: return "IV";
                 default: break;
             }
+
+            var numeralToNumberMapping = new Dictionary<int, string> {
+                { 100,"C"},
+                { 10, "X" },
+                { 1, "I"}
+            };
             var result = "";
-            while (number >= 10)
+            foreach (var mapping in numeralToNumberMapping)
             {
-                result += "X";
-                number -= 10;
+                while (number >= mapping.Key)
+                {
+                    result += mapping.Value;
+                    number -= mapping.Key;
+                }
             }
-            while (number > 0)
-            {
-                result += "I";
-                number--;
-            }
-            
+
             return result;
         }
     }
