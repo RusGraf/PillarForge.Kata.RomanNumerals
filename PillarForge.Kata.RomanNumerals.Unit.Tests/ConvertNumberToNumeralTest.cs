@@ -35,5 +35,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumberToNumeral(10);
             Assert.AreEqual("X", actual);
         }
+
+        [TestMethod]
+        public void GivenNumberFifty_WhenConvertNumberToNumeral_ThenReturnNumeralL()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(50);
+            Assert.AreEqual("L", actual);
+        }
     }
 }

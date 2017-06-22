@@ -4,14 +4,14 @@
     {
         public string ConvertNumberToNumeral(int number)
         {
-            if (number == 5)
+            switch (number)
             {
-                return "V";
+                case 50: return "L";
+                case 10: return "X";
+                case 5: return "V";
+                default: break;
             }
-            else if (number == 10)
-            {
-                return "X";
-            }
+
             return "I";
         }
     }
