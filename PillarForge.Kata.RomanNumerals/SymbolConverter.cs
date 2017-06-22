@@ -15,11 +15,17 @@
                 default: break;
             }
             var result = "";
+            while (number >= 10)
+            {
+                result += "X";
+                number -= 10;
+            }
             while (number > 0)
             {
                 result += "I";
                 number--;
             }
+            
             return result;
         }
     }
