@@ -155,5 +155,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumberToNumeral(900);
             Assert.AreEqual("CM", actual);
         }
+
+        [TestMethod]
+        public void GivenNumberEight_WhenConvertNumberToNumeral_ThenReturnNumeralVIII()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(8);
+            Assert.AreEqual("VIII", actual);
+        }
     }
 }
