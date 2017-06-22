@@ -28,5 +28,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             Assert.AreEqual("V", actual);
         }
 
+        [TestMethod]
+        public void GivenNumberTen_WhenConvertNumberToNumeral_ThenReturnNumeralX()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(10);
+            Assert.AreEqual("X", actual);
+        }
     }
 }

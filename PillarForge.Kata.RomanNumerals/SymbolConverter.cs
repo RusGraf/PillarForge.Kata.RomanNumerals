@@ -8,6 +8,10 @@
             {
                 return "V";
             }
+            else if (number == 10)
+            {
+                return "X";
+            }
             return "I";
         }
     }
