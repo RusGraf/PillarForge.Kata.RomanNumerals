@@ -131,5 +131,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumberToNumeral(40);
             Assert.AreEqual("XL", actual);
         }
+
+        [TestMethod]
+        public void GivenNumberNinety_WhenConvertNumberToNumeral_ThenReturnNumeralXC()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(90);
+            Assert.AreEqual("XC", actual);
+        }
     }
 }
