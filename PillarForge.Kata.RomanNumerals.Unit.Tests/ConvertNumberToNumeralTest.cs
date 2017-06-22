@@ -171,5 +171,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumberToNumeral(12);
             Assert.AreEqual("XII", actual);
         }
+
+        [TestMethod]
+        public void GivenNumberOneThousandSixtySix_WhenConvertNumberToNumeral_ThenReturnNumeralMLXVI()
+        {
+            var target = new SymbolConverter();
+            var actual = target.ConvertNumberToNumeral(1066);
+            Assert.AreEqual("MLXVI", actual);
+        }
     }
 }
