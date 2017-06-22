@@ -6,6 +6,7 @@
         {
             switch (number)
             {
+                case 100: return "C";
                 case 50: return "L";
                 case 10: return "X";
                 case 5: return "V";
