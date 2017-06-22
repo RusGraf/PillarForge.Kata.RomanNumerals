@@ -12,11 +12,15 @@
                 case 50: return "L";
                 case 10: return "X";
                 case 5: return "V";
-                case 2: return "II";
                 default: break;
             }
-
-            return "I";
+            var result = "";
+            while (number > 0)
+            {
+                result += "I";
+                number--;
+            }
+            return result;
         }
     }
 }
