@@ -12,6 +12,7 @@
                 case 50: return "L";
                 case 10: return "X";
                 case 5: return "V";
+                case 2: return "II";
                 default: break;
             }
 
