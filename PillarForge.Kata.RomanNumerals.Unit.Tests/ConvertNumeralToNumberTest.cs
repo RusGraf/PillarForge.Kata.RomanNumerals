@@ -272,5 +272,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             _target.ConvertNumeralToNumber("DM");
         }
+
+        [TestMethod]
+        public void GivenNumeralIV_WhenConvertNumeralToNumber_ThenReturnNumberFour()
+        {
+            var actual = _target.ConvertNumeralToNumber("IV");
+            Assert.AreEqual(4, actual);
+        }
     }
 }

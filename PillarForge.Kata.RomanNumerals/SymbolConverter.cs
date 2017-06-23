@@ -20,6 +20,15 @@ namespace PillarForge.Kata.RomanNumerals
             { 4, "IV" },
             { 1, "I" }
         };
+        private Dictionary<char, int> _numberToNumeralMapping = new Dictionary<char, int> {
+            { 'M', 1000 },
+            { 'D', 500 },
+            { 'C', 100 },
+            { 'L', 50 },
+            { 'X', 10 },
+            { 'V', 5 },
+            { 'I', 1 }
+        };
 
         public string ConvertNumberToNumeral(int number)
         {
@@ -44,30 +53,27 @@ namespace PillarForge.Kata.RomanNumerals
             }
 
             var result = 0;
+            var previousNumber = 0;
             var numeralCharacters = numeral.ToCharArray();
             foreach (var numeralCharacter in numeralCharacters)
             {
-                result += ConvertNumeralCharacterToNumber(numeralCharacter);
+                if (!_numberToNumeralMapping.ContainsKey(numeralCharacter))
+                {
+                    throw new InvalidRomanNumeralInputException();
+                }
+
+                var currentNumber = _numberToNumeralMapping[numeralCharacter];
+                result += currentNumber;
+                if (IsPrevioseNumberSubtracted(currentNumber, previousNumber))
+                {
+                    result -= previousNumber * 2;
+                }
+                previousNumber = currentNumber;
             }
 
             return result;
         }
-
-        private int ConvertNumeralCharacterToNumber(char numeralCharacter)
-        {
-            switch (numeralCharacter)
-            {
-                case 'M': return 1000;
-                case 'D': return 500;
-                case 'C': return 100;
-                case 'L': return 50;
-                case 'X': return 10;
-                case 'V': return 5;
-                case 'I' : return 1;
-                default: throw new InvalidRomanNumeralInputException();
-            }
-        }
-
+        
         private bool IsRomanNumeralValid(string numeral)
         {
             string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM", "IL", "IC", "ID",
@@ -81,6 +87,18 @@ namespace PillarForge.Kata.RomanNumerals
             }
 
             return true;
+        }
+
+        private bool IsPrevioseNumberSubtracted(int currentNumber, int previousNumber)
+        {
+            if (previousNumber != 0 && previousNumber < currentNumber)
+            {
+                if (previousNumber == 1 && (currentNumber == 5 || currentNumber == 10))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
