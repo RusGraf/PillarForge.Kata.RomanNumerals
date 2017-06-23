@@ -69,7 +69,7 @@ namespace PillarForge.Kata.RomanNumerals
 
         private bool IsRomanNumeralValid(string numeral)
         {
-            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC" };
+            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM" };
             foreach (var invalidExpression in InvalidExpressions)
             {
                 if (numeral.Contains(invalidExpression))
