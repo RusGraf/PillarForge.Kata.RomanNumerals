@@ -63,7 +63,8 @@ namespace PillarForge.Kata.RomanNumerals
                 case 'L': return 50;
                 case 'X': return 10;
                 case 'V': return 5;
-                default: return 1;
+                case 'I' : return 1;
+                default: throw new InvalidRomanNumeralInputException();
             }
         }
 
