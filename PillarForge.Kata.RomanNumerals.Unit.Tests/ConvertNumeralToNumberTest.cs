@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PillarForge.Kata.RomanNumerals.Exceptions;
 
 namespace PillarForge.Kata.RomanNumerals.Unit.Tests
 {
@@ -102,6 +103,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             var actual = _target.ConvertNumeralToNumber("MMM");
             Assert.AreEqual(3000, actual);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralVV_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            var actual = _target.ConvertNumeralToNumber("VV");
         }
     }
 }

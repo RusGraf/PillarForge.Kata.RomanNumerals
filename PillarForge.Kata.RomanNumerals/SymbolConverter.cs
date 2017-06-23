@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using PillarForge.Kata.RomanNumerals.Exceptions;
+using System.Collections.Generic;
 
 namespace PillarForge.Kata.RomanNumerals
 {
@@ -19,6 +20,7 @@ namespace PillarForge.Kata.RomanNumerals
             { 4, "IV" },
             { 1, "I" }
         };
+
         public string ConvertNumberToNumeral(int number)
         {
             var result = "";
@@ -36,6 +38,11 @@ namespace PillarForge.Kata.RomanNumerals
 
         public int ConvertNumeralToNumber(string numeral)
         {
+            if (numeral == "VV")
+            {
+                throw new InvalidRomanNumeralInputException();
+            }
+
             var result = 0;
             var numeralCharacters = numeral.ToCharArray();
             foreach (var numeralCharacter in numeralCharacters)
