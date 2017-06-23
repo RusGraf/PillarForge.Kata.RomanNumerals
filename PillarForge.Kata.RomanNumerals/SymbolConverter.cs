@@ -78,7 +78,7 @@ namespace PillarForge.Kata.RomanNumerals
         {
             string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM", "IL", "IC", "ID",
                 "IM", "VX", "VL", "VC", "VD", "VM", "XD", "XM", "LC", "LD", "LM", "DM", "IIV", "IIX", "XXL", "XXC",
-                "CCD"};
+                "CCD", "CCM"};
             foreach (var invalidExpression in InvalidExpressions)
             {
                 if (numeral.Contains(invalidExpression))

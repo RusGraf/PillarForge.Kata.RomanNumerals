@@ -363,5 +363,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             _target.ConvertNumeralToNumber("CCD");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralCCM_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            _target.ConvertNumeralToNumber("CCM");
+        }
     }
 }
