@@ -258,5 +258,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             _target.ConvertNumeralToNumber("LD");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralLM_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            _target.ConvertNumeralToNumber("LM");
+        }
     }
 }
