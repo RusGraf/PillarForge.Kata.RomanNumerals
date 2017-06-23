@@ -244,5 +244,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             _target.ConvertNumeralToNumber("XM");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralLC_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            _target.ConvertNumeralToNumber("LC");
+        }
     }
 }
