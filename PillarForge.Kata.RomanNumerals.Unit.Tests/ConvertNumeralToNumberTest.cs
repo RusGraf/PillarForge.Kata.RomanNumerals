@@ -109,119 +109,126 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralVV_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("VV");
+            _target.ConvertNumeralToNumber("VV");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralXVV_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("XVV");
+            _target.ConvertNumeralToNumber("XVV");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralLL_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("LL");
+            _target.ConvertNumeralToNumber("LL");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralDD_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("DD");
+            _target.ConvertNumeralToNumber("DD");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralIIII_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("IIII");
+            _target.ConvertNumeralToNumber("IIII");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralXXXX_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("XXXX");
+            _target.ConvertNumeralToNumber("XXXX");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralCCCC_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("CCCC");
+            _target.ConvertNumeralToNumber("CCCC");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralMMMM_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("MMMM");
+            _target.ConvertNumeralToNumber("MMMM");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenInvalidNumeralCharacter_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("A");
+            _target.ConvertNumeralToNumber("A");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralIL_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("IL");
+            _target.ConvertNumeralToNumber("IL");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralIC_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("IC");
+            _target.ConvertNumeralToNumber("IC");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralID_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("ID");
+            _target.ConvertNumeralToNumber("ID");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralIM_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("IM");
+            _target.ConvertNumeralToNumber("IM");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralVX_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("VX");
+            _target.ConvertNumeralToNumber("VX");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralVL_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("VL");
+            _target.ConvertNumeralToNumber("VL");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralVC_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("VC");
+            _target.ConvertNumeralToNumber("VC");
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralVD_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
         {
-            var actual = _target.ConvertNumeralToNumber("VD");
+            _target.ConvertNumeralToNumber("VD");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralVM_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            _target.ConvertNumeralToNumber("VM");
         }
     }
 }
