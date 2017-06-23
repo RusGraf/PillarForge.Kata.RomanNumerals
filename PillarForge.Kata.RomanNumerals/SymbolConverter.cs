@@ -38,7 +38,7 @@ namespace PillarForge.Kata.RomanNumerals
 
         public int ConvertNumeralToNumber(string numeral)
         {
-            if (numeral.Contains("VV"))
+            if (numeral.Contains("VV") || numeral.Contains("LL"))
             {
                 throw new InvalidRomanNumeralInputException();
             }

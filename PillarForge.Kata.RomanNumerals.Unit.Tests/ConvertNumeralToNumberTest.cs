@@ -118,5 +118,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             var actual = _target.ConvertNumeralToNumber("XVV");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralLL_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            var actual = _target.ConvertNumeralToNumber("LL");
+        }
     }
 }
