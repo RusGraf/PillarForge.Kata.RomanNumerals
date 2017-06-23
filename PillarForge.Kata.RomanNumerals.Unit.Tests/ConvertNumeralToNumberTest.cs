@@ -286,5 +286,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("IX");
             Assert.AreEqual(9, actual);
         }
+
+        [TestMethod]
+        public void GivenNumeralXL_WhenConvertNumeralToNumber_ThenReturnNumberForty()
+        {
+            var actual = _target.ConvertNumeralToNumber("XL");
+            Assert.AreEqual(40, actual);
+        }
     }
 }
