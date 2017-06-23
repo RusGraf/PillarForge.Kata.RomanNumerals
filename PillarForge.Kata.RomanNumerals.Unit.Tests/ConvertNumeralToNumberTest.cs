@@ -75,5 +75,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("II");
             Assert.AreEqual(2, actual);
         }
+
+        [TestMethod]
+        public void GivenNumeralIII_WhenConvertNumeralToNumber_ThenReturnNumberThree()
+        {
+            var actual = _target.ConvertNumeralToNumber("III");
+            Assert.AreEqual(3, actual);
+        }
     }
 }
