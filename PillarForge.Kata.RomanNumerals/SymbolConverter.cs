@@ -36,14 +36,26 @@ namespace PillarForge.Kata.RomanNumerals
 
         public int ConvertNumeralToNumber(string numeral)
         {
-            switch (numeral)
+            var result = 0;
+            var numeralCharacters = numeral.ToCharArray();
+            foreach (var numeralCharacter in numeralCharacters)
             {
-                case "M": return 1000;
-                case "D": return 500;
-                case "C": return 100;
-                case "L": return 50;
-                case "X": return 10;
-                case "V": return 5;
+                result += ConvertNumeralCharacterToNumber(numeralCharacter);
+            }
+
+            return result;
+        }
+
+        private int ConvertNumeralCharacterToNumber(char numeralCharacter)
+        {
+            switch (numeralCharacter)
+            {
+                case 'M': return 1000;
+                case 'D': return 500;
+                case 'C': return 100;
+                case 'L': return 50;
+                case 'X': return 10;
+                case 'V': return 5;
                 default: return 1;
             }
         }
