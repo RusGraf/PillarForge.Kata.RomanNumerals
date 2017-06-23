@@ -12,20 +12,33 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         //When I enter $numeral
         //Then $number is returned
 
+        SymbolConverter _target;
+
+        [TestInitialize]
+        public void SetUp()
+        {
+            _target = new SymbolConverter();
+        }
+
         [TestMethod]
         public void GivenNumeralI_WhenConvertNumeralToNumber_ThenReturnNumberOne()
         {
-            SymbolConverter target = new SymbolConverter();
-            var actual = target.ConvertNumeralToNumber("I");
+            var actual = _target.ConvertNumeralToNumber("I");
             Assert.AreEqual(1, actual);
         }
 
         [TestMethod]
         public void GivenNumeralV_WhenConvertNumeralToNumber_ThenReturnNumberFive()
         {
-            SymbolConverter target = new SymbolConverter();
-            var actual = target.ConvertNumeralToNumber("V");
+            var actual = _target.ConvertNumeralToNumber("V");
             Assert.AreEqual(5, actual);
+        }
+
+        [TestMethod]
+        public void GivenNumeralX_WhenConvertNumeralToNumber_ThenReturnNumberTen()
+        {
+            var actual = _target.ConvertNumeralToNumber("X");
+            Assert.AreEqual(10, actual);
         }
     }
 }
