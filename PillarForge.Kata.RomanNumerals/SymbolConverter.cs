@@ -58,10 +58,7 @@ namespace PillarForge.Kata.RomanNumerals
             for (var i = 0; i < characterCount; i++)
             {
                 var numeralCharacter = numeralCharacters[i];
-                if (!_numberToNumeralMapping.ContainsKey(numeralCharacter))
-                {
-                    throw new InvalidRomanNumeralInputException("Only valid Roman Numerals allowed.");
-                }
+                ValidateForInvalidNumeralCharacter(numeralCharacter);
                 var currentNumber = _numberToNumeralMapping[numeralCharacter];
                 if (IsLastCharacter(i, characterCount))
                 {
@@ -91,6 +88,14 @@ namespace PillarForge.Kata.RomanNumerals
             return result;
         }
 
+        private void ValidateForInvalidNumeralCharacter(char numeralCharacter)
+        {
+            if (!_numberToNumeralMapping.ContainsKey(numeralCharacter))
+            {
+                throw new InvalidRomanNumeralInputException("Only valid Roman Numerals allowed.");
+            }
+        }
+
         private bool IsLastCharacter(int characterIndex, int characterCount)
         {
             if (characterIndex + 1 == characterCount)
@@ -111,7 +116,7 @@ namespace PillarForge.Kata.RomanNumerals
 
         private bool IsRomanNumeralValid(string numeral)
         {
-            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM", "VX", "VL", "VC", "VD", "VM", "LC", "LD", "LM", "DM" };
+            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM", "LC", "LD", "LM", "DM" };
             foreach (var invalidExpression in InvalidExpressions)
             {
                 if (numeral.Contains(invalidExpression))
@@ -141,19 +146,26 @@ namespace PillarForge.Kata.RomanNumerals
 
         private bool IsAllowedSubtraction(int currentNumber, int nextNumber)
         {
-            for(var i = 1; i<=100; i *= 10)
+            if (!IsCurentNumberFiveSymbol(currentNumber))
             {
-                if (currentNumber == i)
+                for (var i = 1; i <= 100; i *= 10)
                 {
-                    if (nextNumber == i*5 || nextNumber == i*10)
+                    if (currentNumber == i)
                     {
-                        return true;
+                        if (nextNumber == i * 5 || nextNumber == i * 10)
+                        {
+                            return true;
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
-            
-            return true;
+            return false;
+        }
+
+        private bool IsCurentNumberFiveSymbol(int currentNumber)
+        {
+            return (currentNumber == 5 || currentNumber % 10 == 5);
         }
     }
 }
