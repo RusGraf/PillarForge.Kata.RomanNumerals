@@ -38,6 +38,7 @@ namespace PillarForge.Kata.RomanNumerals
         {
             switch (numeral)
             {
+                case "M": return 1000;
                 case "D": return 500;
                 case "C": return 100;
                 case "L": return 50;

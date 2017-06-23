@@ -61,5 +61,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("D");
             Assert.AreEqual(500, actual);
         }
+
+        [TestMethod]
+        public void GivenNumeralM_WhenConvertNumeralToNumber_ThenReturnNumberThousand()
+        {
+            var actual = _target.ConvertNumeralToNumber("M");
+            Assert.AreEqual(1000, actual);
+        }
     }
 }
