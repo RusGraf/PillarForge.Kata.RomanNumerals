@@ -33,5 +33,10 @@ namespace PillarForge.Kata.RomanNumerals
 
             return result;
         }
+
+        public int ConvertNumeralToNumber(string numeral)
+        {
+            return 1;
+        }
     }
 }
