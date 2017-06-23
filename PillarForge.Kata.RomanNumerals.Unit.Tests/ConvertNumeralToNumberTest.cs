@@ -132,5 +132,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             var actual = _target.ConvertNumeralToNumber("DD");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralIIII_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            var actual = _target.ConvertNumeralToNumber("IIII");
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace PillarForge.Kata.RomanNumerals
 
         public int ConvertNumeralToNumber(string numeral)
         {
-            if (numeral.Contains("VV") || numeral.Contains("LL") || numeral.Contains("DD"))
+            if (!IsRomanNumeralValid(numeral))
             {
                 throw new InvalidRomanNumeralInputException();
             }
@@ -65,6 +65,20 @@ namespace PillarForge.Kata.RomanNumerals
                 case 'V': return 5;
                 default: return 1;
             }
+        }
+
+        private bool IsRomanNumeralValid(string numeral)
+        {
+            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII" };
+            foreach (var invalidExpression in InvalidExpressions)
+            {
+                if (numeral.Contains(invalidExpression))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
