@@ -237,5 +237,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             _target.ConvertNumeralToNumber("XD");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralXM_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            _target.ConvertNumeralToNumber("XM");
+        }
     }
 }
