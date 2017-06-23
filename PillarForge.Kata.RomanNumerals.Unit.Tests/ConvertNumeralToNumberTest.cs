@@ -335,5 +335,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             _target.ConvertNumeralToNumber("IIV");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralIIX_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            _target.ConvertNumeralToNumber("IIX");
+        }
     }
 }
