@@ -307,5 +307,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("CD");
             Assert.AreEqual(400, actual);
         }
+
+        [TestMethod]
+        public void GivenNumeralCM_WhenConvertNumeralToNumber_ThenReturnNumberNineHundred()
+        {
+            var actual = _target.ConvertNumeralToNumber("CM");
+            Assert.AreEqual(900, actual);
+        }
     }
 }
