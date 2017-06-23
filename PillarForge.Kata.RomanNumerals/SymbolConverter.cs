@@ -94,7 +94,8 @@ namespace PillarForge.Kata.RomanNumerals
             if (previousNumber != 0 && previousNumber < currentNumber)
             {
                 if (previousNumber == 1 && (currentNumber == 5 || currentNumber == 10)
-                    || (previousNumber == 10 && (currentNumber == 50 || currentNumber == 100)))
+                    || (previousNumber == 10 && (currentNumber == 50 || currentNumber == 100))
+                    || (previousNumber == 100 && (currentNumber == 500 || currentNumber == 1000)))
                 {
                     return true;
                 }

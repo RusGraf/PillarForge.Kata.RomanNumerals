@@ -300,6 +300,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("XC");
             Assert.AreEqual(90, actual);
         }
-        
+
+        [TestMethod]
+        public void GivenNumeralCD_WhenConvertNumeralToNumber_ThenReturnNumberFourHundred()
+        {
+            var actual = _target.ConvertNumeralToNumber("CD");
+            Assert.AreEqual(400, actual);
+        }
     }
 }
