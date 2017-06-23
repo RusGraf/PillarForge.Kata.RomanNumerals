@@ -36,6 +36,11 @@ namespace PillarForge.Kata.RomanNumerals
 
         public int ConvertNumeralToNumber(string numeral)
         {
+            if (numeral == "V")
+            {
+                return 5;
+            }
+
             return 1;
         }
     }

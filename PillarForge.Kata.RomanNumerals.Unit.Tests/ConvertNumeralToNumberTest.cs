@@ -19,5 +19,13 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = target.ConvertNumeralToNumber("I");
             Assert.AreEqual(1, actual);
         }
+
+        [TestMethod]
+        public void GivenNumeralV_WhenConvertNumeralToNumber_ThenReturnNumberFive()
+        {
+            SymbolConverter target = new SymbolConverter();
+            var actual = target.ConvertNumeralToNumber("V");
+            Assert.AreEqual(5, actual);
+        }
     }
 }
