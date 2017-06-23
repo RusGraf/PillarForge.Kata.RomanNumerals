@@ -314,5 +314,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("CM");
             Assert.AreEqual(900, actual);
         }
+
+        [TestMethod]
+        public void GivenNumeralMLXVI_WhenConvertNumeralToNumber_ThenReturnNumberOneThousandSixtySix()
+        {
+            var actual = _target.ConvertNumeralToNumber("MLXVI");
+            Assert.AreEqual(1066, actual);
+        }
     }
 }
