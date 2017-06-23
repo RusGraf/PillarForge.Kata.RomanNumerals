@@ -181,5 +181,12 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             var actual = _target.ConvertNumeralToNumber("IC");
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralID_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            var actual = _target.ConvertNumeralToNumber("ID");
+        }
     }
 }
