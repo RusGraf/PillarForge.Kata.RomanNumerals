@@ -49,36 +49,69 @@ namespace PillarForge.Kata.RomanNumerals
         {
             if (!IsRomanNumeralValid(numeral))
             {
-                throw new InvalidRomanNumeralInputException();
+                throw new InvalidRomanNumeralInputException("The Roman Numeral input expression is invalid;");
             }
 
             var result = 0;
-            var previousNumber = 0;
             var numeralCharacters = numeral.ToCharArray();
-            foreach (var numeralCharacter in numeralCharacters)
+            var characterCount = numeralCharacters.Length;
+            for (var i = 0; i < characterCount; i++)
             {
+                var numeralCharacter = numeralCharacters[i];
                 if (!_numberToNumeralMapping.ContainsKey(numeralCharacter))
                 {
-                    throw new InvalidRomanNumeralInputException();
+                    throw new InvalidRomanNumeralInputException("Only valid Roman Numerals allowed.");
                 }
-
                 var currentNumber = _numberToNumeralMapping[numeralCharacter];
-                result += currentNumber;
-                if (IsPrevioseNumberSubtracted(currentNumber, previousNumber))
+                if (IsLastCharacter(i, characterCount))
                 {
-                    result -= previousNumber * 2;
+                    result += currentNumber;
+                    return result;
                 }
-                previousNumber = currentNumber;
+                var nextCarachter = numeralCharacters[i + 1];
+                var nextNumber = _numberToNumeralMapping[nextCarachter];
+                if (IsNumberShouldBeSubtracted(currentNumber, nextNumber))
+                {
+                    if (!IsFirstCharacter(i))
+                    {
+                        var previoseCharacter = numeralCharacters[i - 1];
+                        if (previoseCharacter == numeralCharacter)
+                        {
+                            throw new InvalidRomanNumeralInputException("Only one subtraction can be made per numeral.");
+                        }
+                    }
+                    result -= currentNumber;
+                }
+                else
+                {
+                    result += currentNumber;
+                }
             }
 
             return result;
         }
-        
+
+        private bool IsLastCharacter(int characterIndex, int characterCount)
+        {
+            if (characterIndex + 1 == characterCount)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsFirstCharacter(int characterIndex)
+        {
+            if (characterIndex == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private bool IsRomanNumeralValid(string numeral)
         {
-            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM", "IL", "IC", "ID",
-                "IM", "VX", "VL", "VC", "VD", "VM", "XD", "XM", "LC", "LD", "LM", "DM", "IIV", "IIX", "XXL", "XXC",
-                "CCD", "CCM"};
+            string[] InvalidExpressions = { "VV", "LL", "DD", "IIII", "XXXX", "CCCC", "MMMM", "VX", "VL", "VC", "VD", "VM", "LC", "LD", "LM", "DM" };
             foreach (var invalidExpression in InvalidExpressions)
             {
                 if (numeral.Contains(invalidExpression))
@@ -90,18 +123,37 @@ namespace PillarForge.Kata.RomanNumerals
             return true;
         }
 
-        private bool IsPrevioseNumberSubtracted(int currentNumber, int previousNumber)
+        private bool IsNumberShouldBeSubtracted(int currentNumber, int nextNumber)
         {
-            if (previousNumber != 0 && previousNumber < currentNumber)
+            if (currentNumber < nextNumber)
             {
-                if (previousNumber == 1 && (currentNumber == 5 || currentNumber == 10)
-                    || (previousNumber == 10 && (currentNumber == 50 || currentNumber == 100))
-                    || (previousNumber == 100 && (currentNumber == 500 || currentNumber == 1000)))
+                if (IsAllowedSubtraction(currentNumber, nextNumber))
                 {
                     return true;
                 }
+                else
+                {
+                    throw new InvalidRomanNumeralInputException("Not allowed Roman Numeral subtraction.");
+                }
             }
             return false;
+        }
+
+        private bool IsAllowedSubtraction(int currentNumber, int nextNumber)
+        {
+            for(var i = 1; i<=100; i *= 10)
+            {
+                if (currentNumber == i)
+                {
+                    if (nextNumber == i*5 || nextNumber == i*10)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            
+            return true;
         }
     }
 }
