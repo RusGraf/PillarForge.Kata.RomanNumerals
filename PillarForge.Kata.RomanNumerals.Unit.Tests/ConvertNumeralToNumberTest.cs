@@ -49,10 +49,17 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         }
 
         [TestMethod]
-        public void GivenNumeralD_WhenConvertNumeralToNumber_ThenReturnNumberHundred()
+        public void GivenNumeralC_WhenConvertNumeralToNumber_ThenReturnNumberHundred()
+        {
+            var actual = _target.ConvertNumeralToNumber("C");
+            Assert.AreEqual(100, actual);
+        }
+
+        [TestMethod]
+        public void GivenNumeralD_WhenConvertNumeralToNumber_ThenReturnNumberFiveHundred()
         {
             var actual = _target.ConvertNumeralToNumber("D");
-            Assert.AreEqual(100, actual);
+            Assert.AreEqual(500, actual);
         }
     }
 }
