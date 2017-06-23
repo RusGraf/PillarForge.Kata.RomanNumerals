@@ -202,6 +202,7 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
         {
             var actual = _target.ConvertNumeralToNumber("VX");
         }
+
         [TestMethod]
         [ExpectedException(typeof(InvalidRomanNumeralInputException))]
         public void GivenNumeralVL_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
@@ -209,5 +210,11 @@ namespace PillarForge.Kata.RomanNumerals.Unit.Tests
             var actual = _target.ConvertNumeralToNumber("VL");
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(InvalidRomanNumeralInputException))]
+        public void GivenNumeralVc_WhenConvertNumeralToNumber_ThenThrowInvalidRomanNumeralInputException()
+        {
+            var actual = _target.ConvertNumeralToNumber("VC");
+        }
     }
 }
